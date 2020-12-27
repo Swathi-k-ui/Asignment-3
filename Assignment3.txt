@@ -1,0 +1,60 @@
+1)void insert_any()
+{
+	int data_value, key;
+	printf("\nEnter data of the node: ");
+	scanf("%d", &data_value);
+	printf("\nEnter data of the node after which new node is to be inserted: ");
+	scanf("%d", &key);
+	temp = (struct node *) malloc(sizeof(struct node));
+	ptr = header;
+	while(ptr->link != NULL && ptr->data != key)
+	{
+		ptr = ptr->link;
+	}
+	if(ptr->data == key)
+	{
+		temp->data = data_value;
+		temp->link = ptr->link;
+		ptr->link = temp;
+	}
+	else
+	{
+		printf("\nValue %d not found\n",key);
+	}
+}
+
+
+2)void delete_beg()
+{
+    if(start==NULL)
+    {
+        printf("The list is empty!!");
+    }
+    else
+    {
+        q=start;
+        start=start->next;
+        printf("Deleted element is %d",q->data);
+        free(q);
+    }
+}
+
+ 
+3)void delete_end()
+{
+    if(start==NULL)
+    {
+        printf("The list is empty!!");
+    }
+    else
+    {
+        q=start;
+        while(q->next->next!=NULL)
+        q=q->next;
+ 
+        t=q->next;
+        q->next=NULL;
+        printf("Deleted element is %d",t->data);
+        free(t);
+    }
+}
